@@ -38,7 +38,7 @@ public class UserService {
 	public void delete(long id) {
 		try {
 			repository.deleteById(id);
-			
+
 		} catch (EmptyResultDataAccessException error) {
 			throw new ResourceNotFoundException(id);
 
@@ -52,8 +52,8 @@ public class UserService {
 			User entity = repository.getReferenceById(id);
 			updateDate(entity, object);
 			return repository.save(entity);
-			
-		} catch(EntityNotFoundException error) {
+
+		} catch (EntityNotFoundException error) {
 			throw new ResourceNotFoundException(id);
 		}
 	}
